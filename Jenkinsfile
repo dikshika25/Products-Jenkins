@@ -6,7 +6,7 @@ pipeline {
             steps {
 //               bat "rmdir  /s /q TicketBookingServiceJunitTesting"
                 bat "git clone https://github.com/dikshika25/Products-Jenkins.git"
-                bat "mvn clean -f Product-Jenkins"
+           //     bat "mvn clean -f Product-Jenkins"
             }
         }
         stage('install') {
