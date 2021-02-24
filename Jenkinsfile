@@ -1,28 +1,27 @@
-  
 pipeline {
+
     agent any
+    tools {
+        maven 'maven_3_6_3' 
+    }
     stages {
-        stage('git repo & clean') {
+        stage('Compile stage') {
             steps {
-//               bat "rmdir  /s /q TicketBookingServiceJunitTesting"
-                bat "git clone https://github.com/dikshika25/Products-Jenkins.git"
-           //     bat "mvn clean -f Product-Jenkins"
-            }
-        }
-        stage('install') {
-            steps {
-                bat "mvn install -f Product-Jenkins"
-            }
-        }
-        stage('test') {
-            steps {
-                bat "mvn test -f Product-Jenkins"
-            }
-        }
-        stage('package') {
-            steps {
-                bat "mvn package -f Product-Jenkins"
-            }
+                bat "mvn clean compile" 
         }
     }
+         stage('testing stage') {
+             steps {
+                bat "mvn test"
+        }
+    }
+
+          stage('deployment stage') {
+              steps {
+                bat "mvn deploy"
+        }
+    }
+
+  }
 }
+
