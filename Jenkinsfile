@@ -10,17 +10,17 @@ pipeline {
                 bat "mvn clean compile" 
         }
     }
-         stage('testing stage') {
-             steps {
-                sh 'mvn test'
-        }
-    }
+//         stage('testing stage') {
+  / /          steps {
+   / /            sh 'mvn test'
+      //  }
+    //}
 
-          stage('deployment stage') {
-              steps {
-                sh 'mvn deploy'
-        }
-    }
+      //    stage('deployment stage') {
+        //      steps {
+          //      sh 'mvn deploy'
+        //}
+    //}
 
   }
 }
